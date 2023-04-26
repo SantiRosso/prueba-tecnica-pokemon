@@ -20,4 +20,12 @@ const createPokemon = async (name) => {
   }
 };
 
-module.exports = { getPokemons, createPokemon };
+const updatePokemon = async (id, name) => {
+  try {
+    await Pokemon.updateOne({ _id: id }, { name: name });
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+module.exports = { getPokemons, createPokemon, updatePokemon };
