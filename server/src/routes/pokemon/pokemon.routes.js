@@ -4,6 +4,7 @@ const {
   getPokemons,
   createPokemon,
   updatePokemon,
+  deletePokemon,
 } = require("./controllers.js");
 
 router.get("/", async (req, res) => {
@@ -28,6 +29,16 @@ router.put("/", async (req, res) => {
   try {
     const { name, id } = req.body;
     await updatePokemon(id, name);
+    res.sendStatus(204);
+  } catch (error) {
+    res.status(500).send(error.message);
+  }
+});
+
+router.delete("/", async (req, res) => {
+  try {
+    const { id } = req.body;
+    await deletePokemon(id);
     res.sendStatus(204);
   } catch (error) {
     res.status(500).send(error.message);

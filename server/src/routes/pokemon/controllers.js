@@ -28,4 +28,12 @@ const updatePokemon = async (id, name) => {
   }
 };
 
-module.exports = { getPokemons, createPokemon, updatePokemon };
+const deletePokemon = async (id) => {
+  try {
+    await Pokemon.deleteOne({ _id: id });
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+module.exports = { getPokemons, createPokemon, updatePokemon, deletePokemon };
