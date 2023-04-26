@@ -1,6 +1,4 @@
 const mongoose = require("mongoose");
-const app = require("../src/app.js");
-const nodemon = require("nodemon");
 require("dotenv").config();
 const { DB_HOST, DB_NAME } = process.env;
 

@@ -9,4 +9,15 @@ const getPokemons = async () => {
   }
 };
 
-module.exports = { getPokemons };
+const createPokemon = async (name) => {
+  try {
+    const pokemon = new Pokemon({
+      name: name,
+    });
+    await pokemon.save();
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
+module.exports = { getPokemons, createPokemon };
