@@ -1,9 +1,9 @@
 const { Schema, model } = require("mongoose");
 
-const productSchema = new Schema({
+const pokemonSchema = new Schema({
   name: {
     type: String,
   },
 });
 
-module.exports = model("Product", productSchema);
+module.exports = model("Pokemon", pokemonSchema);
