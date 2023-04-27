@@ -1,0 +1,57 @@
+.title{
+    display: flex;
+    justify-content: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.552);
+    border: 2px solid black;
+    border-radius: 2%;
+    color: white;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.info{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 75%;
+    overflow: hidden;
+}
+
+.grid{
+    width: 50%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: center;
+    align-items: center;
+}
+
+.h1{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.51);
+    border: 2px solid white;
+    border-radius: 2%;
+    width: 75%;
+}
+
+.name{
+    display: flex;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.51);
+    border: 2px solid white;
+    border-radius: 2%;
+    width: 50%;
+}
+
+.gridItem{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75%;
+}

@@ -24,7 +24,7 @@ const Home = () => {
     }
   })
 
-  pokemons && console.log(pokemons)
+  pokemons && console.log(pokemons.data)
 
     return(
        <div className={s.container}>
@@ -33,13 +33,12 @@ const Home = () => {
           </div>
           <NavBar/>
           {
-            pokemons?.lenght ? pokemons?.map((e) => {
+            pokemons && pokemons?.data?.map((e) => {
               return(
-                <Card name={e.name} types={e.types} image={e.image}/>
+                <Card name={e.name} type={e.type} image={e.image} id={e._id}/>
               )
-            }) : <h1>Cargando</h1>
+            })
           }
-          <Card name={"Santi"} types={["fuego", "hielo"]} image={"https://cn.i.cdn.ti-platform.com/content/1149/pokemon-sol-y-luna-ultraleyendas/showpage/ve/showsquare.a6a9b623.png?imwidth=420"}/>
         </div>
     )
 }

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 //styles
 import s from "./Card.module.css"
 
-const Card = ({name, types, image, id}) => {
+const Card = ({name, type, image, id}) => {
 
     return(
         <Link className={s.link} to={`/pokemon-detail/${id}`}>
@@ -14,7 +14,7 @@ const Card = ({name, types, image, id}) => {
                 
                 <h4>{name.toUpperCase()}</h4>
                 {
-                    types?.map((e) => {
+                    type?.map((e) => {
                         return(
                             <span className={s.types}>{e.toUpperCase()}</span>
                         )

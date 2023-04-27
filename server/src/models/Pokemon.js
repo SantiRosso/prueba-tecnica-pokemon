@@ -6,7 +6,7 @@ const pokemonSchema = new Schema(
     hp: Number,
     firstedition: Boolean,
     expansion: String,
-    type: String,
+    type: Array,
     rarity: String,
     price: Number,
     image: String,
