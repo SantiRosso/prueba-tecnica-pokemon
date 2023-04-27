@@ -27,8 +27,18 @@ router.get("/:id", async (req, res) => {
 
 router.post("/", async (req, res) => {
   try {
-    const { name } = req.body;
-    await createPokemon(name);
+    const { name, hp, firstedition, rarity, expansion, type, price, image } =
+      req.body;
+    await createPokemon(
+      name,
+      hp,
+      firstedition,
+      rarity,
+      expansion,
+      type,
+      price,
+      image
+    );
     res.sendStatus(204);
   } catch (error) {
     res.status(500).send(error.message);
@@ -37,8 +47,28 @@ router.post("/", async (req, res) => {
 
 router.put("/", async (req, res) => {
   try {
-    const { name, id } = req.body;
-    await updatePokemon(id, name);
+    const {
+      name,
+      hp,
+      firstedition,
+      rarity,
+      expansion,
+      type,
+      price,
+      image,
+      id,
+    } = req.body;
+    await updatePokemon(
+      id,
+      name,
+      hp,
+      firstedition,
+      rarity,
+      expansion,
+      type,
+      price,
+      image
+    );
     res.sendStatus(204);
   } catch (error) {
     res.status(500).send(error.message);
