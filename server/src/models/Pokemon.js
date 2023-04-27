@@ -1,31 +1,22 @@
 const { Schema, model } = require("mongoose");
 
-const pokemonSchema = new Schema({
-  name: {
+const pokemonSchema = new Schema(
+  {
+    name: String,
+    hp: Number,
+    firstedition: Boolean,
+    expansion: String,
     type: String,
+    rarity: String,
+    price: Number,
+    image: String,
   },
-  hp: {
-    type: Number,
-  },
-  firstedition: {
-    type: Boolean,
-  },
-  expansion: {
-    type: String,
-  },
-  type: {
-    type: String,
-  },
-  rarity: {
-    type: String,
-  },
-  price: {
-    type: Boolean,
-  },
-  image: {
-    type: String,
-  },
-  timestamps: true,
-});
+  {
+    timestamps: {
+      createdAt: "created_at", // Use `created_at` to store the created date
+      updatedAt: "updated_at", // and `updated_at` to store the last updated date
+    },
+  }
+);
 
 module.exports = model("Pokemon", pokemonSchema);
