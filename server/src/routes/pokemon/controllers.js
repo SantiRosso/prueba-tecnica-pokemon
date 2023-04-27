@@ -9,6 +9,15 @@ const getPokemons = async () => {
   }
 };
 
+const getPokemon = async (id) => {
+  try {
+    const pokemon = await Pokemon.findById(id);
+    return pokemon;
+  } catch (error) {
+    throw new Error(error);
+  }
+};
+
 const createPokemon = async (name) => {
   try {
     const pokemon = new Pokemon({
@@ -30,10 +39,16 @@ const updatePokemon = async (id, name) => {
 
 const deletePokemon = async (id) => {
   try {
-    await Pokemon.deleteOne({ _id: id });
+    await Pokemon.findByIdAndDelete(id);
   } catch (error) {
     throw new Error(error);
   }
 };
 
-module.exports = { getPokemons, createPokemon, updatePokemon, deletePokemon };
+module.exports = {
+  getPokemons,
+  getPokemon,
+  createPokemon,
+  updatePokemon,
+  deletePokemon,
+};

@@ -5,6 +5,7 @@ const {
   createPokemon,
   updatePokemon,
   deletePokemon,
+  getPokemon,
 } = require("./controllers.js");
 
 router.get("/", async (req, res) => {
@@ -12,6 +13,15 @@ router.get("/", async (req, res) => {
     res.send(await getPokemons());
   } catch (error) {
     res.status(500).send(error.message);
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    res.send(await getPokemon(id));
+  } catch (error) {
+    res.status(404).send(error.message);
   }
 });
 
