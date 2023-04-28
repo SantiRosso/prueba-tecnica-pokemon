@@ -23,15 +23,15 @@ const PokemonDetail = () => {
         navigate("/")
     }
 
-    // const handleUpdate = () => {
-
-    // }
+    const handleUpdate = async (_id) => {
+        navigate(`/update/${_id}`)
+    }
 
     return(
         <div>
             <Navbar/>
             <div className={s.head}>
-                {/* <button onClick={()=> handleUpdate(id)} className={s.button}>Update</button> */}
+                <button onClick={()=> handleUpdate(id)} className={s.button}>Update</button>
                 <img src={pokecards} alt="Pokecards" /> 
                 <button onClick={()=> handleDelete(id)} className={s.button}>Delete</button>
             </div>
