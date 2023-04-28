@@ -9,21 +9,31 @@ import Navbar from "../../navbar/Navbar";
 import pokecards from "../../../assets/pokecards.png"
 
 const PokemonDetail = () => {
-    const id = useParams()
-    const navigate = useNavigate()
+    const id = useParams().id
     const [detail, setDetail] = useState();
+    const navigate = useNavigate();
 
     useEffect(() => {
-        axios.get(`http://localhost:3001/pokemon/${id.id}`)
+        axios.get(`http://localhost:3001/pokemon/${id}`)
         .then(response => setDetail(response.data))
     },[id])
 
-    detail && console.log(detail)
+    const handleDelete = async (_id) => {
+        await axios.delete(`http://localhost:3001/pokemon/${_id}`)
+        navigate("/")
+    }
+
+    // const handleUpdate = () => {
+
+    // }
+
     return(
         <div>
             <Navbar/>
-            <div className={s.title}>
+            <div className={s.head}>
+                {/* <button onClick={()=> handleUpdate(id)} className={s.button}>Update</button> */}
                 <img src={pokecards} alt="Pokecards" /> 
+                <button onClick={()=> handleDelete(id)} className={s.button}>Delete</button>
             </div>
             <div className={s.container}>
                 <h1 className={s.name}>{detail?.name.toUpperCase()}</h1>

@@ -5,7 +5,8 @@
     right: 0;
     height: 6vh;
     z-index: 11;
-    background-image: linear-gradient(to right top, #000000, #41101d, #800929, #c10029, #ff0017);
+    /* background-image: linear-gradient(to right top, #000000, #41101d, #800929, #c10029, #ff0017); */
+    background-image: linear-gradient(to right top, #000000, #2c2b2b, #555453, #81807e, #aeafac);
     border-bottom-left-radius: 20%;
     border-bottom-right-radius: 20%;
     display: flex;

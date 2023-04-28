@@ -75,9 +75,9 @@ router.put("/", async (req, res) => {
   }
 });
 
-router.delete("/", async (req, res) => {
+router.delete("/:id", async (req, res) => {
+  const { id } = req.params;
   try {
-    const { id } = req.body;
     await deletePokemon(id);
     res.sendStatus(204);
   } catch (error) {

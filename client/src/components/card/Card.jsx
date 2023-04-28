@@ -7,7 +7,6 @@ const Card = ({name, type, image, id}) => {
     return(
         <Link className={s.link} to={`/pokemon-detail/${id}`}>
             <div className={s.card}>
-                
                 <div className={s.divImage}>
                     <img src={image} alt={name} className={s.image}/>
                 </div>

@@ -24,21 +24,22 @@ const Home = () => {
     }
   })
 
-  pokemons && console.log(pokemons.data)
-
     return(
        <div className={s.container}>
           <div>
             <img src={pokecards} alt="pokecards" />
           </div>
           <NavBar/>
-          {
-            pokemons && pokemons?.data?.map((e) => {
-              return(
-                <Card name={e.name} type={e.type} image={e.image} id={e._id}/>
-              )
-            })
-          }
+          <div className={s.cards}>
+            {
+              pokemons && pokemons?.data?.map((e) => {
+                return(
+                  <Card name={e.name} type={e.type} image={e.image} id={e._id}/>
+                )
+              })
+            }
+          </div>
+          
         </div>
     )
 }
