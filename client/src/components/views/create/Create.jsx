@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 //components
-import NavBar from "../../navbar/Navbar";
+import Navbar from "../../navbar/Navbar";
 //images
 import pokecards from "../../../assets/pokecards.png";
 //styles
@@ -41,7 +41,7 @@ const Create = () => {
 
     return(
         <div>
-            <NavBar/> 
+            <Navbar/> 
             <div className={s.title}>
                 <img src={pokecards} alt="Pokecards" /> 
             </div>

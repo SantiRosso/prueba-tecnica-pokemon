@@ -46,7 +46,7 @@ const createPokemon = async (
 };
 
 const updatePokemon = async (
-  id,
+  _id,
   name,
   hp,
   firstedition,
@@ -58,7 +58,7 @@ const updatePokemon = async (
 ) => {
   try {
     await Pokemon.updateOne(
-      { _id: id },
+      { _id: _id },
       { name: name },
       { hp: hp },
       { firstedition: firstedition },

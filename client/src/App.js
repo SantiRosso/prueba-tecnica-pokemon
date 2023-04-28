@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/create" element={<Create />} />
-        <Route path="/update" element={<Update />} />
+        <Route path="/update/:id" element={<Update />} />
         <Route path="/pokemon-detail/:id" element={<PokemonDetail />} />
       </Routes>
     </div>

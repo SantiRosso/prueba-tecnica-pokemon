@@ -29,8 +29,6 @@ router.post("/", async (req, res) => {
   try {
     const { name, hp, firstedition, rarity, expansion, type, price, image } =
       req.body;
-
-    console.log(name, hp, firstedition, rarity, expansion, type, price, image);
     await createPokemon(
       name,
       hp,
@@ -58,10 +56,11 @@ router.put("/", async (req, res) => {
       type,
       price,
       image,
-      id,
+      _id,
     } = req.body;
+    console.log(req.body);
     await updatePokemon(
-      id,
+      _id,
       name,
       hp,
       firstedition,
