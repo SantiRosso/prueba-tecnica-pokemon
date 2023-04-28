@@ -11,7 +11,7 @@ const Create = () => {
 
     const [form, setForm] = useState({
         name: "",
-        hp: "",
+        hp: 0,
         type: [],
         image: "",
         rarity: "",
@@ -21,16 +21,29 @@ const Create = () => {
     });
 
     const handleChange = (e) => {
-        if(e.name === "type"){
+        if(e.target.name === "type"){
             setForm({
                 ...form,
-                 type: type.push(e.target.value)
-             })
-        }
-        setForm({
+                 type: [...form.type, e.target.value]
+            })
+        } else if(e.target.name === "firstedition"){
+            if(e.target.value === "Yes"){
+                setForm({
+                    ...form,
+                     firstedition: true,
+                })
+            } else {
+                setForm({
+                    ...form,
+                     firstedition: false,
+                })
+            }
+        } else {
+            setForm({
             ...form,
              [e.target.name]: e.target.value
          })
+        }
     }
 
     const handleSubmit = async (e) => {
@@ -50,11 +63,14 @@ const Create = () => {
                     <label >Name:</label>
                     <input type="text" onChange={handleChange} name="name"/>
                     <label >HP:</label>
-                    <input type="text" onChange={handleChange} name="hp"/>
+                    <input type="number" onChange={handleChange} name="hp"/>
                     <label >Types:</label>
                     <input type="text" onChange={handleChange} name="type"/>
-                    {/* <label >First edition:</label>
-                    <input type="text" onChange={handleChange} name="firstedition"/> */}
+                    <label >First edition:</label>
+                    <label >Yes</label>
+                    <input type="radio" onChange={handleChange} name="firstedition" value={"Yes"}/>
+                    <label >No</label>
+                    <input type="radio" onChange={handleChange} name="firstedition" value={"No"}/>
                     <label >Rarity:</label>
                     <input type="text" onChange={handleChange} name="rarity"/>
                     <label >Expansion:</label>

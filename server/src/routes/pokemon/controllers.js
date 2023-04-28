@@ -31,12 +31,12 @@ const createPokemon = async (
   try {
     const pokemon = new Pokemon({
       name: name,
-      hp: hp,
+      hp: parseInt(hp),
       firstedition: firstedition,
       rarity: rarity,
       expansion: expansion,
       type: type,
-      price: price,
+      price: parseInt(price),
       image: image,
     });
     await pokemon.save();
@@ -58,15 +58,19 @@ const updatePokemon = async (
 ) => {
   try {
     await Pokemon.updateOne(
-      { _id: _id },
-      { name: name },
-      { hp: hp },
-      { firstedition: firstedition },
-      { rarity: rarity },
-      { expansion: expansion },
-      { type: type },
-      { price: price },
-      { image: image }
+      { _id: { $eq: _id } },
+      {
+        $set: {
+          name: name,
+          hp: parseInt(hp),
+          firstedition: firstedition,
+          rarity: rarity,
+          expansion: expansion,
+          type: type,
+          price: parseInt(price),
+          image: image,
+        },
+      }
     );
   } catch (error) {
     throw new Error(error);

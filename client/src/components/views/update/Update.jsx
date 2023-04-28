@@ -27,20 +27,37 @@ const Update = () => {
         rarity: "",
         expansion: "",
         firstedition: true,
-        price: 0,
+        price: "",
+        _id: id
     });
 
     const handleChange = (e) => {
-        if(e.name === "type"){
+        if(e.target.name === "firstedition"){
+            console.log(e.target.value)
+            if(e.target.value === "Yes"){
+                setForm({
+                    ...form,
+                     [e.target.name]: true,
+                })
+            }
+            if(e.target.value === "No"){
+                setForm({
+                    ...form,
+                     [e.target.name]: false,
+                })
+            }
+        } else if(e.target.name === "type"){
             setForm({
                 ...form,
-                 type: type.push(e.target.value)
+                 type: [...form.type, e.target.value]
              })
-        }
-        setForm({
+        } else {
+            setForm({
             ...form,
              [e.target.name]: e.target.value
          })
+        }
+        
     }
 
     const handleSubmit = async (e) => {
@@ -60,11 +77,14 @@ const Update = () => {
                     <label >Name:</label>
                     <input type="text" onChange={handleChange} name="name" defaultValue={detail?.name}/>
                     <label >HP:</label>
-                    <input type="text" onChange={handleChange} name="hp" defaultValue={detail?.hp}/>
+                    <input type="number" onChange={handleChange} name="hp" defaultValue={detail?.hp}/>
                     <label >Types:</label>
                     <input type="text" onChange={handleChange} name="type" defaultValue={detail?.type}/>
-                    {/* <label >First edition:</label>
-                    <input type="text" onChange={handleChange} name="firstedition" defaultValue={detail?.firstedition}/> */}
+                    <label >First edition:</label>
+                    <label >Yes</label>
+                    <input type="radio" onChange={handleChange} name="firstedition" defaultValue={"Yes"}/*  defaultChecked={detail?.firstedition} *//>
+                    <label >No</label>
+                    <input type="radio" onChange={handleChange} name="firstedition" defaultValue={"No"}/*  defaultChecked={!detail?.firstedition} *//>
                     <label >Rarity:</label>
                     <input type="text" onChange={handleChange} name="rarity" defaultValue={detail?.rarity}/>
                     <label >Expansion:</label>
