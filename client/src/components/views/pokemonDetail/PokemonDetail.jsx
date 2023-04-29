@@ -42,13 +42,7 @@ const PokemonDetail = () => {
                     <div className={s.grid}>
                         <div>
                             <h1 className={s.h1}>TYPES:</h1>
-                            {
-                                detail?.type?.map((e) => {
-                                    return(
-                                         <h3 className={s.gridItem}>{e.toUpperCase()}</h3>
-                                    )
-                                })
-                            }
+                            <h3 className={s.gridItem}>{detail?.type.toUpperCase()}</h3>
                             <h1 className={s.h1}>HP:</h1>
                             <h3 className={s.gridItem}>{detail?.hp}</h3>
                             <h1 className={s.h1}>First edition:</h1>
@@ -61,8 +55,8 @@ const PokemonDetail = () => {
                             <h3 className={s.gridItem}>{detail?.rarity}</h3>
                             <h1 className={s.h1}>Price:</h1>
                             <h3 className={s.gridItem}>${detail?.price}</h3>
-                            {/* <h1 className={s.h1}>Creation date:</h1>
-                            <h3 className={s.gridItem}>{detail?.date}</h3> */}
+                            <h1 className={s.h1}>Created at:</h1>
+                            <h3 className={s.gridItem}>{detail?.created_at}</h3>
                         </div>
                     </div>
                 </div> 

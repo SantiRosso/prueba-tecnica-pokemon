@@ -12,13 +12,7 @@ const Card = ({name, type, image, id}) => {
                 </div>
                 
                 <h4>{name.toUpperCase()}</h4>
-                {
-                    type?.map((e) => {
-                        return(
-                            <span className={s.types}>{e.toUpperCase()}</span>
-                        )
-                    })
-                }
+                <span>{type.toUpperCase()}</span>
             </div>
         </Link>
     )

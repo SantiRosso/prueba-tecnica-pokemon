@@ -22,7 +22,7 @@ const Update = () => {
     const [form, setForm] = useState({
         name: "",
         hp: "",
-        type: [],
+        type: "",
         image: "",
         rarity: "",
         expansion: "",
@@ -33,35 +33,41 @@ const Update = () => {
 
     const handleChange = (e) => {
         if(e.target.name === "firstedition"){
-            console.log(e.target.value)
             if(e.target.value === "Yes"){
                 setForm({
                     ...form,
-                     [e.target.name]: true,
+                    [e.target.name]: true,
                 })
             }
             if(e.target.value === "No"){
                 setForm({
                     ...form,
-                     [e.target.name]: false,
+                    [e.target.name]: false,
+                })
+            } else {
+                setForm({
+                    ...form,
+                    [e.target.name]: e.target.value
                 })
             }
-        } else if(e.target.name === "type"){
-            setForm({
-                ...form,
-                 type: [...form.type, e.target.value]
-             })
-        } else {
-            setForm({
-            ...form,
-             [e.target.name]: e.target.value
-         })
         }
-        
     }
+
+    const validate = (form) => {
+        let errors = {};
+        if (parseInt(form.hp) % 10 !== 0) {
+            errors.hp = "-Health must be a multiple of 10.";
+        }
+        return errors;
+    }   
+
+    const errorMsg = validate(form);
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        if(Object.values(errorMsg).length){
+            return alert(Object.values(errorMsg).join('\n'), "error");
+        }
         await axios.put("http://localhost:3001/pokemon", form)
         //mostrar mensaje de éxito 
     }
@@ -78,6 +84,7 @@ const Update = () => {
                     <input type="text" onChange={handleChange} name="name" defaultValue={detail?.name}/>
                     <label >HP:</label>
                     <input type="number" onChange={handleChange} name="hp" defaultValue={detail?.hp}/>
+                    <span className={s.error}>{errorMsg.hp}</span>
                     <label >Types:</label>
                     <input type="text" onChange={handleChange} name="type" defaultValue={detail?.type}/>
                     <label >First edition:</label>

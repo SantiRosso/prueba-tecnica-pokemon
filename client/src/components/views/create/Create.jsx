@@ -21,12 +21,7 @@ const Create = () => {
     });
 
     const handleChange = (e) => {
-        if(e.target.name === "type"){
-            setForm({
-                ...form,
-                 type: [...form.type, e.target.value]
-            })
-        } else if(e.target.name === "firstedition"){
+        if(e.target.name === "firstedition"){
             if(e.target.value === "Yes"){
                 setForm({
                     ...form,
@@ -46,8 +41,21 @@ const Create = () => {
         }
     }
 
+    const validate = (form) => {
+        let errors = {};
+        if (parseInt(form.hp) % 10 !== 0) {
+            errors.hp = "-Health must be a multiple of 10.";
+        }
+        return errors;
+    }   
+
+    const errorMsg = validate(form);
+
     const handleSubmit = async (e) => {
         e.preventDefault()
+        if(Object.values(errorMsg).length){
+            return alert(Object.values(errorMsg).join('\n'), "error");
+        }
         await axios.post("http://localhost:3001/pokemon", form)
         //mostrar mensaje de éxito 
     }
@@ -64,6 +72,7 @@ const Create = () => {
                     <input type="text" onChange={handleChange} name="name"/>
                     <label >HP:</label>
                     <input type="number" onChange={handleChange} name="hp"/>
+                    <span className={s.error}>{errorMsg.hp}</span>
                     <label >Types:</label>
                     <input type="text" onChange={handleChange} name="type"/>
                     <label >First edition:</label>
