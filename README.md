@@ -3,6 +3,7 @@
   Esta aplicación está hecha con el proposito de una prueba técnica. Es una RESTful API relacionada con las cartas de Pokémon que permite ser
 consumida desde un Front-end o una App con las siguientes acciones:
 <br/>
+<br/>
 -Crear una carta.
 <br/>
 -Actualizar una carta.
@@ -12,7 +13,8 @@ consumida desde un Front-end o una App con las siguientes acciones:
 -Devolver todas las cartas.
 <br/>
 -Borrar una carta.
-
+<br/>
+<br/>
   Para poder levantar el proyecto es necesario: 
   <br/>
 -Forkearlo.
