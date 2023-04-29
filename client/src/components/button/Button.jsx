@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import s from "./Button.module.css"
 
-const Button = ({name, route}) => {
+const Button = ({name, route, type}) => {
 
     const navigate = useNavigate()
 
@@ -12,7 +12,7 @@ const Button = ({name, route}) => {
     }
 
     return(
-        <button onClick={handleClick} className={s.button}>{name}</button>
+        <button onClick={handleClick} className={s.button} type={type}>{name}</button>
     )
 }
 

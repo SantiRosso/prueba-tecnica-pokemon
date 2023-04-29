@@ -7,6 +7,7 @@ import Navbar from "../../navbar/Navbar";
 import s from "./Update.module.css"
 //images
 import pokecards from "../../../assets/pokecards.png";
+import Button from "../../button/Button";
 
 const Update = () => {
     const id = useParams().id
@@ -80,27 +81,27 @@ const Update = () => {
             </div>
             <div className={s.container}>
                 <form onSubmit={handleSubmit} className={s.form}>
-                    <label >Name:</label>
-                    <input type="text" onChange={handleChange} name="name" defaultValue={detail?.name}/>
-                    <label >HP:</label>
-                    <input type="number" onChange={handleChange} name="hp" defaultValue={detail?.hp}/>
+                    <label className={s.label}>Name:</label>
+                    <input className={s.input} type="text" onChange={handleChange} name="name" defaultValue={detail?.name}/>
+                    <label className={s.label}>HP:</label>
+                    <input className={s.input} type="number" onChange={handleChange} name="hp" defaultValue={detail?.hp}/>
                     <span className={s.error}>{errorMsg.hp}</span>
-                    <label >Types:</label>
-                    <input type="text" onChange={handleChange} name="type" defaultValue={detail?.type}/>
-                    <label >First edition:</label>
-                    <label >Yes</label>
+                    <label className={s.label}>Types:</label>
+                    <input className={s.input} type="text" onChange={handleChange} name="type" defaultValue={detail?.type}/>
+                    <label className={s.label}>First edition:</label>
+                    <label className={s.label}>Yes</label>
                     <input type="radio" onChange={handleChange} name="firstedition" defaultValue={"Yes"}/*  defaultChecked={detail?.firstedition} *//>
-                    <label >No</label>
+                    <label className={s.label}>No</label>
                     <input type="radio" onChange={handleChange} name="firstedition" defaultValue={"No"}/*  defaultChecked={!detail?.firstedition} *//>
-                    <label >Rarity:</label>
-                    <input type="text" onChange={handleChange} name="rarity" defaultValue={detail?.rarity}/>
-                    <label >Expansion:</label>
-                    <input type="text" onChange={handleChange} name="expansion" defaultValue={detail?.expansion}/>
-                    <label >Price:</label>
-                    <input type="number" onChange={handleChange} name="price" defaultValue={detail?.price}/>
-                    <label >Image:</label>
-                    <input type="text" onChange={handleChange} name="image" defaultValue={detail?.image}/>
-                    <button type="submit">Update</button>
+                    <label className={s.label}>Rarity:</label>
+                    <input className={s.input} type="text" onChange={handleChange} name="rarity" defaultValue={detail?.rarity}/>
+                    <label className={s.label}>Expansion:</label>
+                    <input className={s.input} type="text" onChange={handleChange} name="expansion" defaultValue={detail?.expansion}/>
+                    <label className={s.label}>Price:</label>
+                    <input className={s.input} type="number" onChange={handleChange} name="price" defaultValue={detail?.price}/>
+                    <label className={s.label}>Image:</label>
+                    <input className={s.input} type="text" onChange={handleChange} name="image" defaultValue={detail?.image}/>
+                    <Button type="submit" name="Update"/>
                 </form>
             </div>
         </div>

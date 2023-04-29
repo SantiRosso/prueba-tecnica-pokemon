@@ -6,6 +6,7 @@ import Navbar from "../../navbar/Navbar";
 import pokecards from "../../../assets/pokecards.png";
 //styles
 import s from "./Create.module.css";
+import Button from "../../button/Button";
 
 const Create = () => {
 
@@ -68,27 +69,27 @@ const Create = () => {
             </div>
             <div className={s.container}>
                 <form onSubmit={handleSubmit} className={s.form}>
-                    <label >Name:</label>
-                    <input type="text" onChange={handleChange} name="name"/>
-                    <label >HP:</label>
-                    <input type="number" onChange={handleChange} name="hp"/>
+                    <label className={s.label}>Name:</label>
+                    <input className={s.input} type="text" onChange={handleChange} name="name"/>
+                    <label className={s.label}>HP:</label>
+                    <input className={s.input} type="number" onChange={handleChange} name="hp"/>
                     <span className={s.error}>{errorMsg.hp}</span>
-                    <label >Types:</label>
-                    <input type="text" onChange={handleChange} name="type"/>
-                    <label >First edition:</label>
-                    <label >Yes</label>
+                    <label className={s.label}>Types:</label>
+                    <input className={s.input} type="text" onChange={handleChange} name="type"/>
+                    <label className={s.label}>First edition:</label>
+                    <label className={s.label}>Yes</label>
                     <input type="radio" onChange={handleChange} name="firstedition" value={"Yes"}/>
-                    <label >No</label>
+                    <label className={s.label}>No</label>
                     <input type="radio" onChange={handleChange} name="firstedition" value={"No"}/>
-                    <label >Rarity:</label>
-                    <input type="text" onChange={handleChange} name="rarity"/>
-                    <label >Expansion:</label>
-                    <input type="text" onChange={handleChange} name="expansion"/>
-                    <label >Price:</label>
-                    <input type="number" onChange={handleChange} name="price"/>
-                    <label >Image:</label>
-                    <input type="text" onChange={handleChange} name="image"/>
-                    <button type="submit">Create</button>
+                    <label className={s.label}>Rarity:</label>
+                    <input className={s.input} type="text" onChange={handleChange} name="rarity"/>
+                    <label className={s.label}>Expansion:</label>
+                    <input className={s.input} type="text" onChange={handleChange} name="expansion"/>
+                    <label className={s.label}>Price:</label>
+                    <input className={s.input} type="number" onChange={handleChange} name="price"/>
+                    <label className={s.label}>Image:</label>
+                    <input className={s.input} type="text" onChange={handleChange} name="image"/>
+                    <Button type="submit" name="Create"/>
                 </form>
             </div>
         </div>
