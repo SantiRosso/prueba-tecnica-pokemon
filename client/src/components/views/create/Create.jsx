@@ -7,6 +7,7 @@ import pokecards from "../../../assets/pokecards.png";
 //styles
 import s from "./Create.module.css";
 import Button from "../../button/Button";
+import Footer from "../../footer/Footer";
 
 const Create = () => {
 
@@ -92,6 +93,7 @@ const Create = () => {
                     <Button type="submit" name="Create"/>
                 </form>
             </div>
+            <Footer/>
         </div>
     )
 }

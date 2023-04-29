@@ -3,6 +3,7 @@ import axios from "axios";
 //components
 import NavBar from "../../navbar/Navbar";
 import Card from "../../card/Card";
+import Footer from "../../footer/Footer";
 //images
 import pokecards from "../../../assets/pokecards.png"
 //styles
@@ -39,7 +40,7 @@ const Home = () => {
               })
             }
           </div>
-          
+          <Footer/>
         </div>
     )
 }

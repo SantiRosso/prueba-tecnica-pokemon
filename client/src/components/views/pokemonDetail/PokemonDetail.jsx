@@ -5,6 +5,7 @@ import axios from "axios";
 import s from "./PokemonDetail.module.css"
 //components
 import Navbar from "../../navbar/Navbar";
+import Footer from "../../footer/Footer";
 //images
 import pokecards from "../../../assets/pokecards.png"
 
@@ -61,6 +62,7 @@ const PokemonDetail = () => {
                     </div>
                 </div> 
             </div>
+            <Footer/>
         </div>
     )
 }

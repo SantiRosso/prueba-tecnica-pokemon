@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 //components
 import Navbar from "../../navbar/Navbar";
+import Footer from "../../footer/Footer";
 //styles
 import s from "./Update.module.css"
 //images
@@ -104,6 +105,7 @@ const Update = () => {
                     <Button type="submit" name="Update"/>
                 </form>
             </div>
+            <Footer/>
         </div>
     )
 }
